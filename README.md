@@ -70,3 +70,13 @@ Uses **@solana/kit** and **mpl-core** via UMI. Images and metadata are stored on
 | `nft_mint.ts` | `npm run nft:mint` | Mints the NFT on-chain using the metadata URI |
 
 Run them in order. Paste the URI logged by each step into the next script before running it.
+
+
+## SPL TOKEN Address: 
+4rp9WutzzHa48Pa73YX7WBx646fd2s5V7Z8jzTirqfP5
+
+![alt text](image.png)
+![alt text](image-1.png)
+## NFT Address
+GFxDyuywQgkjxaK5Uayo1MZD9ZyMjzVBdbndrfmqGxED
+![alt text](image-2.png)
