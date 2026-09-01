@@ -22,15 +22,20 @@ umi.use(mplCore());
 (async () => {
   try {
     const metadataUri =
-      "https://gateway.irys.xyz/BihKZnhMCvxN3i34cv25eEyFgUvBVGJQn1Gp11D4LxEi ";
+      "https://gateway.irys.xyz/AxUtYbF7GU8ahdPYkMX5dWVa3HgpPooGFagrwuiRfhPt";
     const asset = generateSigner(umi);
 
     //add you nft name and metadata uri
-    // const tx = await create()
 
-    // const signature = base58.deserialize(tx.signature)[0];
+    const tx = await create(umi, {
+      asset,
+      name: "rug nft",
+      uri: metadataUri,
+    }).sendAndConfirm(umi);
 
-    // console.log(`signature ${signature} , asset : ${asset.publicKey}`);
+    const signature = base58.deserialize(tx.signature)[0];
+
+    console.log(`signature ${signature} , asset : ${asset.publicKey}`);
   } catch (e) {
     console.log(`errior ${e}`);
   }

@@ -14,7 +14,7 @@ import {
 import bs58 from "bs58";
 
 //paste your mint address got from spl_init.ts
-const mint = publicKey("E2Jazz2VXcVL9RZkn6ZFA4q1YGvgEvrns3Gr6w72DC4w");
+const mint = publicKey("4rp9WutzzHa48Pa73YX7WBx646fd2s5V7Z8jzTirqfP5");
 
 const umi = createUmi("https://api.devnet.solana.com");
 
@@ -31,20 +31,30 @@ umi.use(signerIdentity(signer));
     };
 
     //change the metadata
-    // const data: DataV2Args =
+    const data: DataV2Args = {
+      name: "Cat coin",
+      uri: "",
+      symbol: "CAT",
+      sellerFeeBasisPoints: 1,
+      creators: null,
+      collection: null,
+      uses: null,
+    };
 
-    // const args: CreateMetadataAccountV3InstructionArgs =
+    const args: CreateMetadataAccountV3InstructionArgs = {
+      data,
+      isMutable: true,
+      collectionDetails: null,
+    };
 
-    // const tx = createMetadataAccountV3(umi, {
-    //   ...accounts,
-    //   ...args,
-    // });
+    const tx = createMetadataAccountV3(umi, {
+      ...accounts,
+      ...args,
+    });
 
-    // const result = await tx.sendAndConfirm(umi);
-    // console.log("signature: ", bs58.encode(Buffer.from(result.signature)));
+    const result = await tx.sendAndConfirm(umi);
+    console.log("signature: ", bs58.encode(Buffer.from(result.signature)));
   } catch (error) {
     console.log("error", error);
   }
 })();
-
-//43ttSnN9qaVi8TDcWwBZo5mUbfKDXY8d1N7exdJojJxV7qjKuwXoEh7qASXbFU4QFrAEFzZvcmWpRch434hSVNLN
